@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 
 import SideBar from "./SideBar";
 import Videos from "./Videos";
-import { useGetVideosQuery } from "../services/youtubeApi";
+import { useGetVideosQuery } from "../App/services/youtubeApi";
 import Loader from "./Loader";
 
 const Feed = () => {
