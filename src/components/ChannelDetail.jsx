@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import ChannelCard from "./ChannelCard";
 import {
-  useGetChannelQuery,
+  useGetChannelByIdQuery,
   useGetChannelVideosQuery,
 } from "../App/services/youtubeApi";
 import Loader from "./Loader";
@@ -13,7 +13,7 @@ import Videos from "./Videos";
 const ChannelDetail = () => {
   const { id } = useParams();
 
-  const { data, isFetching } = useGetChannelQuery(id);
+  const { data, isFetching } = useGetChannelByIdQuery(id);
   const { data: channelVideos, isFetching: isFetchingChannelVideos } =
     useGetChannelVideosQuery(id);
 

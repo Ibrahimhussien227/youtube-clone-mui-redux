@@ -4,9 +4,9 @@ import { Box, Stack } from "@mui/material";
 import VideoCard from "./VideoCard";
 import ChannelCard from "./ChannelCard";
 
-const Videos = ({ videos }) => (
+const Videos = ({ videos, direction }) => (
   <Stack
-    direction="row"
+    direction={direction || "row"}
     flexWrap="wrap"
     justifyContent="center"
     alignItems="center"

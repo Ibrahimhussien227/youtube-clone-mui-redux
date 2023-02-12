@@ -9,31 +9,43 @@ const baseUrl = import.meta.env.VITE_YOUTUBE_API_URL;
 
 const params = {
   maxResults: "50",
-  part: "snippet",
 };
 
 export const youtubeApi = createApi({
   reducerPath: "youtubeApi",
   baseQuery: fetchBaseQuery({ baseUrl }),
-  // tagTypes: ["GET"],
   endpoints: (builder) => ({
     getVideos: builder.query({
       query: (url) => ({
-        url: `/search?q=${url}`,
+        url: `/search?q=${url}&part=snippet`,
         headers: youtubeApiHeaders,
         params,
       }),
     }),
-    getChannel: builder.query({
+    getVideosById: builder.query({
       query: (id) => ({
-        url: `/channels?id=${id}`,
+        url: `/videos?id=${id}&part=snippet,statistics`,
+        headers: youtubeApiHeaders,
+        params,
+      }),
+    }),
+    getRelatedVideos: builder.query({
+      query: (id) => ({
+        url: `/search?relatedToVideoId=${id}&type=video&part=snippet`,
+        headers: youtubeApiHeaders,
+        params,
+      }),
+    }),
+    getChannelById: builder.query({
+      query: (id) => ({
+        url: `/channels?id=${id}&part=snippet`,
         headers: youtubeApiHeaders,
         params,
       }),
     }),
     getChannelVideos: builder.query({
       query: (id) => ({
-        url: `/search?channelId=${id}&order=date`,
+        url: `/search?channelId=${id}&order=date&part=snippet`,
         headers: youtubeApiHeaders,
         params,
       }),
@@ -43,6 +55,8 @@ export const youtubeApi = createApi({
 
 export const {
   useGetVideosQuery,
-  useGetChannelQuery,
+  useGetVideosByIdQuery,
+  useGetRelatedVideosQuery,
+  useGetChannelByIdQuery,
   useGetChannelVideosQuery,
 } = youtubeApi;

@@ -42,6 +42,8 @@ a {
 .react-player {
   height: 77vh !important;
   width: 100% !important;
+  border-radius: 2.5%;
+  overflow: hidden;
 }
 
 .search-bar {
