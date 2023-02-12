@@ -24,28 +24,25 @@ export const youtubeApi = createApi({
         params,
       }),
     }),
-    // getCryptoDetails: builder.query({
-    //   query: (coinId) => ({
-    //     url: `/coin/${coinId}`,
-    //     headers: cryptoApiHeaders,
-    //     params,
-    //   }),
-    // }),
-    // getCryptoHistory: builder.query({
-    //   query: ({ coinId, timePeriod }) => ({
-    //     url: `/coin/${coinId}/history?timePeriod=${timePeriod}`,
-    //     headers: cryptoApiHeaders,
-    //     params,
-    //   }),
-    // }),
-    // getExchanges: builder.query({
-    //   query: () => ({
-    //     url: `/exchanges`,
-    //     headers: cryptoApiHeaders,
-    //     params,
-    //   }),
-    // }),
+    getChannel: builder.query({
+      query: (id) => ({
+        url: `/channels?id=${id}`,
+        headers: youtubeApiHeaders,
+        params,
+      }),
+    }),
+    getChannelVideos: builder.query({
+      query: (id) => ({
+        url: `/search?channelId=${id}&order=date`,
+        headers: youtubeApiHeaders,
+        params,
+      }),
+    }),
   }),
 });
 
-export const { useGetVideosQuery } = youtubeApi;
+export const {
+  useGetVideosQuery,
+  useGetChannelQuery,
+  useGetChannelVideosQuery,
+} = youtubeApi;
