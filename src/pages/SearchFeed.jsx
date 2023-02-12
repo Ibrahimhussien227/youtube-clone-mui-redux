@@ -2,9 +2,8 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-import Videos from "./Videos";
+import { Videos, Loader } from "../components";
 import { useGetVideosQuery } from "../App/services/youtubeApi";
-import Loader from "./Loader";
 
 const SearchFeed = () => {
   const { searchTerm } = useParams();

@@ -2,13 +2,11 @@ import React from "react";
 import { Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-import ChannelCard from "./ChannelCard";
+import { Loader, Videos, ChannelCard } from "../components";
 import {
   useGetChannelByIdQuery,
   useGetChannelVideosQuery,
 } from "../App/services/youtubeApi";
-import Loader from "./Loader";
-import Videos from "./Videos";
 
 const ChannelDetail = () => {
   const { id } = useParams();

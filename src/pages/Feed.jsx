@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 
-import SideBar from "./SideBar";
-import Videos from "./Videos";
+import { Loader, SideBar, Videos } from "../components";
 import { useGetVideosQuery } from "../App/services/youtubeApi";
-import Loader from "./Loader";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");

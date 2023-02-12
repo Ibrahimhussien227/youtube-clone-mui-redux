@@ -4,12 +4,11 @@ import ReactPlayer from "react-player";
 import { Link, useParams } from "react-router-dom";
 import { CheckCircle } from "@mui/icons-material";
 
+import { Loader, Videos } from "../components";
 import {
   useGetRelatedVideosQuery,
   useGetVideosByIdQuery,
 } from "../App/services/youtubeApi";
-import Loader from "./Loader";
-import Videos from "./Videos";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
